@@ -72,7 +72,7 @@ void helper(const vector<double>& values) {
     xlabel("Sample Index");
     ylabel("Amplitude / Ratio");
 
-    // show();  Run this if not working inside a remote terminal (needs GUI). Otherwise, save graph as png file
+    // show();  Run this if not working inside a remote terminal (needs GUI). Otherwise, save graph as png file to repository
     save("sta_lta_plot.png");
 }
 
