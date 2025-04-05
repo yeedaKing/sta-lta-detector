@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 14)
 find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
 
 include_directories(${Python3_INCLUDE_DIRS})
+include_directories(${NUMPY_INCLUDE_DIR})  # <-- ADD THIS LINE
 
 add_executable(sta_lta_detector main.cpp)
 
