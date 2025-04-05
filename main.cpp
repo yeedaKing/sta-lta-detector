@@ -1,4 +1,5 @@
-// CSCI 3515 Lab 10 STA/LTA Code
+/* CSCI 3515 Lab 10 STA/LTA Code
+    Does not process signals in real time */
 
 #include <iostream>
 #include <vector>
