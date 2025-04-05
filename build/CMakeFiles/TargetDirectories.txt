@@ -1,0 +1,3 @@
+/workspaces/sta-lta-detector/build/CMakeFiles/rebuild_cache.dir
+/workspaces/sta-lta-detector/build/CMakeFiles/edit_cache.dir
+/workspaces/sta-lta-detector/build/CMakeFiles/sta_lta_detector.dir
