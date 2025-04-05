@@ -3,6 +3,10 @@
 
 #include <iostream>
 #include <vector>
+#include <fstream>
+#include <sstream>
+#include <string>
+
 #include "matplotlibcpp.h"
 
 namespace plt = matplotlibcpp;
@@ -77,18 +81,30 @@ void helper(const vector<double>& values) {
     save("sta_lta_plot.png");
 }
 
+vector<double> readAccZFromCSV(const string& filename) {
+    ifstream file(filename);
+    vector<double> signal;
+    string line;
+
+    while (getline(file, line)) {
+        stringstream ss(line);
+        string value;
+        int col = 0;
+        double accZ = 0.0;
+
+        while (getline(ss, value, ',')) {
+            col++;
+            if (col == 3) {  // AccZ is the 3rd column
+                accZ = stod(value);  // Convert string to double
+                signal.push_back(accZ);
+                break; // No need to read the rest of the line
+            }
+        }
+    }
+    return signal;
+}
+
 int main() {
-    vector<double> signal = {
-        // background noise (small random values)
-        0.2, -0.1, 0.05, 0.1, -0.2, 0.15, -0.05, 0.1, 0.2, -0.1,
-        0.0, -0.1, 0.05, 0.1, -0.05, 0.2, 0.1, -0.15, 0.0, 0.1,
-        
-        // sudden event (spike)
-        5.0, 6.2, 5.8, 6.5, 5.9, 6.1, 6.3, 5.7, 6.0, 6.1,
-        
-        // back to background noise
-        0.1, -0.1, 0.05, 0.0, -0.05, 0.1, 0.15, -0.1, 0.05, 0.0,
-        0.2, -0.2, 0.1, -0.1, 0.05, 0.1, -0.05, 0.2, 0.0, -0.1
-    };
+    vector<double> signal = readAccZFromCSV("LAB10.CSV");
     helper(signal);
 }
