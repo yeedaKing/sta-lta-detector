@@ -9,8 +9,8 @@ using namespace std;
 void helper(const vector<int>& values) {
     const int STAWindow = 5;     // short term window
     const int LTAWindow = 20;    // long term window
-    const double int triggerThreshold = 3.5;
-    const double int detriggerThreshold = 1.0;
+    const double triggerThreshold = 3.5;
+    const double detriggerThreshold = 1.0;
 
     const int n = values.size();
 
@@ -47,7 +47,7 @@ void helper(const vector<int>& values) {
             detected = true;
             starts.push_back(i);
 
-        } else if (detected && ratio[i] < triggerTreshold) {
+        } else if (detected && ratio[i] < triggerThreshold) {
             detected = false;
             ends.push_back(i);
         }
