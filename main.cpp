@@ -71,7 +71,9 @@ void helper(const vector<double>& values) {
     title("STA/LTA Event Detection");
     xlabel("Sample Index");
     ylabel("Amplitude / Ratio");
-    show();
+
+    // show();  Run this if not working inside a remote terminal (needs GUI). Otherwise, save graph as png file
+    save("sta_lta_plot.png");
 }
 
 int main() {

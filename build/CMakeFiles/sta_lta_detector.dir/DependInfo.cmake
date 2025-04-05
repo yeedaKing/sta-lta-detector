@@ -10,8 +10,8 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/opt/anaconda3/include/python3.12"
-  "/opt/anaconda3/lib/python3.12/site-packages/numpy/core/include"
+  "/usr/include/python3.8"
+  "/usr/lib/python3/dist-packages/numpy/core/include"
   )
 
 # Targets to which this target links.

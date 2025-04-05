@@ -79,6 +79,7 @@ sta_lta_detector_EXTERNAL_OBJECTS =
 
 sta_lta_detector: CMakeFiles/sta_lta_detector.dir/main.cpp.o
 sta_lta_detector: CMakeFiles/sta_lta_detector.dir/build.make
+sta_lta_detector: /usr/lib/x86_64-linux-gnu/libpython3.8.so
 sta_lta_detector: CMakeFiles/sta_lta_detector.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/workspaces/sta-lta-detector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable sta_lta_detector"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sta_lta_detector.dir/link.txt --verbose=$(VERBOSE)
