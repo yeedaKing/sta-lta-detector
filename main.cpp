@@ -15,9 +15,9 @@ using namespace plt;
 using namespace std;
 
 void helper(const vector<double>& values) {
-    const int STAWindow = 5;     // short term window
-    const int LTAWindow = 20;    // long term window
-    const double triggerThreshold = 3.5;
+    const int STAWindow = 15;     // short term window
+    const int LTAWindow = 150;    // long term window
+    const double triggerThreshold = 1.3;
     const double detriggerThreshold = 1.0;
 
     const int n = values.size();
