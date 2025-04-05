@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=gnu++14
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/include/python3.8 
+CXX_INCLUDES = -I/opt/anaconda3/include/python3.12 -I/opt/anaconda3/lib/python3.12/site-packages/numpy/core/include 
 

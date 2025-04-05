@@ -3,18 +3,15 @@ project(sta_lta_detector)
 
 set(CMAKE_CXX_STANDARD 14)
 
-find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
-
-# Automatically find NumPy include path
-execute_process(
-    COMMAND ${Python3_EXECUTABLE} -c "import numpy; print(numpy.get_include())"
-    OUTPUT_VARIABLE NUMPY_INCLUDE_DIR
-    OUTPUT_STRIP_TRAILING_WHITESPACE
-)
-
-include_directories(${Python3_INCLUDE_DIRS})
-include_directories(${NUMPY_INCLUDE_DIR})
-
 add_executable(sta_lta_detector main.cpp)
 
-target_link_libraries(sta_lta_detector ${Python3_LIBRARIES})
+# Add Python and NumPy include directories to the target
+target_include_directories(sta_lta_detector PRIVATE
+    /opt/anaconda3/include/python3.12
+    /opt/anaconda3/lib/python3.12/site-packages/numpy/core/include
+)
+
+# Link against Anaconda's Python library
+target_link_directories(sta_lta_detector PRIVATE /opt/anaconda3/lib)
+
+target_link_libraries(sta_lta_detector PRIVATE python3.12)

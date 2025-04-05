@@ -1,1 +1,1 @@
-/usr/bin/c++     CMakeFiles/sta_lta_detector.dir/main.cpp.o  -o sta_lta_detector  /usr/lib/x86_64-linux-gnu/libpython3.8.so 
+/usr/bin/c++     CMakeFiles/sta_lta_detector.dir/main.cpp.o  -o sta_lta_detector   -L/opt/anaconda3/lib  -Wl,-rpath,/opt/anaconda3/lib -lpython3.12 
