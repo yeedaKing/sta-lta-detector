@@ -26,9 +26,10 @@ jobs:
 
     - name: Configure CMake
       run: |
+        rm -rf build   # <-- Clean build folder if it exists
         mkdir build
         cd build
-        cmake -DNUMPY_INCLUDE_DIR=$(python3 -c "import numpy; print(numpy.get_include())") ..
+        cmake ..
 
     - name: Build with Make
       run: |
