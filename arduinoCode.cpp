@@ -13,8 +13,8 @@ LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 
 // STA/LTA parameters
 const int STA_WINDOW = 5;
-const int LTA_WINDOW = 20;
-const float TRIGGER_THRESHOLD = 3.5;
+const int LTA_WINDOW = 50;
+const float TRIGGER_THRESHOLD = 1.0;
 const float DETRIGGER_THRESHOLD = 1.0;
 
 // Sliding window buffers
