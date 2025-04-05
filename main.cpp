@@ -60,11 +60,11 @@ void helper(const vector<double>& values) {
     plot(ratio, {{"label", "STA/LTA Ratio"}, {"color", "orange"}});
 
     for (int i=0; i < starts.size(); i++) {
-        axvline(starts[i], {{"color", "green"}, {"linestyle", "--"}});
+        axvline(starts[i], 0.0, 1.0, {{"color", "green"}, {"linestyle", "--"}});
     }
 
     for (int i=0; i < ends.size(); i++) {
-        axvline(ends[i], {{"color", "red"}, {"linestyle", "--"}});
+        axvline(ends[i], 0.0, 1.0, {{"color", "red"}, {"linestyle", "--"}});
     }
 
     legend();
