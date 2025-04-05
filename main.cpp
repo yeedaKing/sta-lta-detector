@@ -15,9 +15,9 @@ using namespace plt;
 using namespace std;
 
 void helper(const vector<double>& values) {
-    const int STAWindow = 15;     // short term window
-    const int LTAWindow = 150;    // long term window
-    const double triggerThreshold = 1.3;
+    const int STAWindow = 5;     // short term window
+    const int LTAWindow = 50;    // long term window
+    const double triggerThreshold = 1.0;
     const double detriggerThreshold = 1.0;
 
     const int n = values.size();
@@ -27,20 +27,20 @@ void helper(const vector<double>& values) {
     vector<double> lta(n);
     vector<double> ratio(n);
 
-    double LTASum = 0;
-    double STASum = 0;
+    double LTASum = 0.0;
+    double STASum = 0.0;
 
     for (int i=0; i<n; i++) {
-        const unsigned int x = abs(values[i]);
+        double x = abs(values[i]);
         LTASum += x;
         STASum += x;
         if (i >= STAWindow-1) {
             sta[i] = STASum/STAWindow;
-            STASum -= values[i-STAWindow];
+            STASum -= abs(values[i-STAWindow+1]);
         }
         if (i >= LTAWindow-1) {
             lta[i] = LTASum/LTAWindow;
-            LTASum -= values[i-LTAWindow];
+            LTASum -= abs(values[i-LTAWindow+1]);
             if (lta[i] > 0) {
                 ratio[i] = sta[i]/lta[i];
             }
@@ -51,6 +51,7 @@ void helper(const vector<double>& values) {
     vector<int> ends;
 
     for (int i=0; i<n; i++) {
+        cout << ratio[i] << endl;
         if (!detected && ratio[i] > triggerThreshold) {
             detected = true;
             starts.push_back(i);
@@ -83,6 +84,11 @@ void helper(const vector<double>& values) {
 
 vector<double> readAccZFromCSV(const string& filename) {
     ifstream file(filename);
+
+    if (!file.is_open()) {
+        cerr << "Error opening file: " << filename << endl;
+        return {};
+    }
     vector<double> signal;
     string line;
 
